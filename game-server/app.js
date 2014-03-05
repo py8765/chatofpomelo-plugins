@@ -1,6 +1,6 @@
 var pomelo = require('pomelo');
 var routeUtil = require('./app/util/routeUtil');
-var globalChannel = require('pomelo-globalChannel-plugin');
+var globalChannel = require('pomelo-globalchannel-plugin');
 var status = require('pomelo-status-plugin');
 
 /**
@@ -15,7 +15,8 @@ app.configure('production|development', function() {
 		globalChannel: {
 			prefix: 'globalChannel',
 			host: '127.0.0.1',
-			port: 6379
+			port: 6379,
+			cleanOnStartUp: true
 		}	
 	});
 
@@ -23,7 +24,8 @@ app.configure('production|development', function() {
 		status: {
 		prefix: 'status',
 		host: '127.0.0.1',
-		port: 6379
+		port: 6379,
+		cleanOnStartUp: true
 		}
 	});
 
